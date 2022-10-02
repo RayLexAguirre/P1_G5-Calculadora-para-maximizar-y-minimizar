@@ -31,6 +31,12 @@ body {
   margin-bottom: 10px;
 }
 
+#btnRegister {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .modal-body {
   text-align: center;
 }
