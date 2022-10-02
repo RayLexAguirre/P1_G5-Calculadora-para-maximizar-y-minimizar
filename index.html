@@ -77,26 +77,131 @@
         </div>
       </div>
     </div>
-
+    <!--Fin modal-->
+    <!--titulo tipos-->
     <div class="container2">
       <div class="header">
         <h2 class="titulo">Tipos</h2>
       </div>
       <ul class="lista-tareas"></ul>
 
-      <button
-        id="btn-link"
-        class="boton-limpiar btn btn-outline-primary btn-lg btn-block"
-      >
-        <a href="src/programacionLineal.html">Programación Líneal</a>
-      </button>
+      <!-- Button trigger modal -->
+      <center>
+        <button
+          type="button"
+          id="btn-link"
+          class="boton-limpiar btn btn-outline-primary btn-lg btn-block"
+          data-toggle="modal"
+          data-target="#ModalResPL"
+        >
+          Programación Líneal
+        </button>
+      </center>
 
-      <button
-        id="btn-link"
-        class="boton-limpiar btn btn-outline-primary btn-lg btn-block"
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="ModalResPL"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
       >
-        <a href="src/simplex.html">Metodo Simplex</a>
-      </button>
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                ¿Cuantas restricciones se manejan?
+              </h5>
+            </div>
+            <div class="modal-body">
+              <button
+                id="btn-link"
+                class="boton-limpiar btn btn-outline-warning btn-lg btn-block"
+              >
+                <a href="src/programacionLineal/PL_2_Res.html"
+                  >2 Restricciones</a
+                >
+              </button>
+              <button
+                id="btn-link"
+                class="boton-limpiar btn btn-outline-warning btn-lg btn-block"
+              >
+                <a href="src/programacionLineal/PL_3_Res.html"
+                  >3 Restricciones</a
+                >
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Fin modal-->
+
+      <!-- Button trigger modal -->
+      <center>
+        <button
+          type="button"
+          id="btn-link"
+          class="boton-limpiar btn btn-outline-primary btn-lg btn-block"
+          data-toggle="modal"
+          data-target="#ModalResPL"
+        >
+          Simplex
+        </button>
+      </center>
+
+      <!-- Modal -->
+      <div
+        class="modal fade"
+        id="ModalResPL"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                ¿Cuantas restricciones se manejan?
+              </h5>
+            </div>
+            <div class="modal-body">
+              <button
+                id="btn-link"
+                class="boton-limpiar btn btn-outline-warning btn-lg btn-block"
+              >
+                <a href="src/simplex/simplex_2_Res.html">2 Restricciones</a>
+              </button>
+              <button
+                id="btn-link"
+                class="boton-limpiar btn btn-outline-warning btn-lg btn-block"
+              >
+                <a href="src/simplex/simplex_3_Res.html">3 Restricciones</a>
+              </button>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Fin modal-->
       <!--Collapse-->
       <div class="accordion" id="accordionExample">
         <div class="card">
@@ -111,7 +216,7 @@
                 aria-controls="collapseOne"
                 style="text-align: center"
               >
-                Instructions
+                Instrucciones
               </button>
             </h2>
           </div>
