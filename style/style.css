@@ -1,0 +1,91 @@
+body {
+  background: linear-gradient(to right, rgb(8, 8, 49), rgb(0, 0, 0));
+}
+
+.container1 {
+  background: #eaeaeae8;
+  max-width: 400px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.container2 {
+  background: #eaeaea;
+  max-width: 400px;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.header {
+  border-bottom: 1px solid rgb(27, 0, 0);
+}
+
+.titulo {
+  text-align: center;
+  padding: 0px;
+}
+
+#btn-link {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal-body {
+  text-align: center;
+}
+
+.subtitulo {
+  text-align: center;
+}
+
+.boton-agregar {
+  display: block;
+  margin: auto;
+  margin-top: -18px;
+  padding: 4px 10px;
+  font-weight: bold;
+  border: 3px solid black;
+}
+
+.boton-agregar:hover {
+  background: rgb(122, 133, 255);
+}
+
+.lista-tareas {
+  list-style: none;
+  padding: 0;
+}
+
+.lista-tareas li {
+  margin: 10px 0;
+  background: #cecbcb;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lista-tareas li:hover {
+  background: rgb(175, 166, 166);
+}
+
+.boton-eliminar {
+  background: black;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+.input-tarea {
+  border: none;
+  background: #cecbcb;
+  padding: 0px;
+  width: 100%;
+  outline: none;
+  text-transform: capitalize;
+  font-size: 16px;
+}
+
+.input-tarea:focus {
+  background: #eaeaea;
+}
