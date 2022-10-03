@@ -113,8 +113,6 @@ export default class Receptor {
     ) {
       let ecuacion = new Receptor(
         minMax,
-        SimRes1,
-        SimRes2,
         objX1,
         objX2,
         res1X1,

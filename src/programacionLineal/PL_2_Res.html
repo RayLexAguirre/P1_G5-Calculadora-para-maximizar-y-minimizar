@@ -52,8 +52,8 @@
         <form>
           <label> Segmentación: </label>
           <select id="max_min" class="col-12">
-            <option value="max">Maximizar</option>
-            <option value="min">Minimizar</option>
+            <option value="Maximizar">Maximizar</option>
+            <option value="Minimizar">Minimizar</option>
           </select>
           <p></p>
           <div class="field">
@@ -73,8 +73,8 @@
                   <input id="Res1_x1" type="number" class="col-3" /> X₁ +
                   <input id="Res1_x2" type="number" class="col-3" /> X₂
                   <select id="SimRes1">
-                    <option value="Res1_Men">≤</option>
-                    <option value="Res1_May">≥</option>
+                    <option id="Res2_Men" value="≤" >≤</option>
+                    <option id="Res2_May" value="≥">≥</option>
                   </select>
                   <input id="Res1_resulta" type="number" class="col-2" />
                 </label>
@@ -87,8 +87,8 @@
                   <input id="Res2_x1" type="number" class="col-3" /> X₁ +
                   <input id="Res2_x2" type="number" class="col-3" /> X₂
                   <select id="SimRes2">
-                    <option value="Res2_Men">≤</option>
-                    <option value="Res2_May">≥</option>
+                    <option id="Res2_Men" value="≤" >≤</option>
+                    <option id="Res2_May" value="≥">≥</option>
                   </select>
                   <input id="Res2_resulta" type="number" class="col-2" />
                 </label>
@@ -115,40 +115,15 @@
       </div>
       <div>
         <h3 id="tituloObj"></h3>
-        <span id="colFormula"></span>
+        <span id="textFunc"></span>
+        <p>
+        <h3 id="tituloSuj"></h3>
+        <span id="R1"></span>
+        <p>
+        <span id="R2"></span>
+        <span id="R3"></span>
+        <table class="table" id="tableCordenadas"></table>
       </div>
-      <!--Collapse-->
-      <div class="accordion" id="accordionExample">
-        <div class="card">
-          <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-              <button
-                class="btn btn-link btn-block text-center btn-lg"
-                type="button"
-                data-toggle="collapse"
-                data-target="#collapseOne"
-                aria-expanded="true"
-                aria-controls="collapseOne"
-                style="text-align: center"
-              >
-                Instructions
-              </button>
-            </h2>
-          </div>
-
-          <div
-            id="collapseOne"
-            class="collapse"
-            aria-labelledby="headingOne"
-            data-parent="#accordionExample"
-          >
-            <div class="card-body" align="justify">
-              <p>...</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
