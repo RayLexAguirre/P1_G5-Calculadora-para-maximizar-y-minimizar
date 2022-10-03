@@ -174,14 +174,14 @@ export default class Estructurador {
         ).toFixed(2),
       },
       {
-        Letra: "C",
+        Letra: "B",
         Cordenada: `(${0}, ${this.cordeRes1x2(receptor)})`,
         Resultado: parseFloat(
           receptor.getObjX2() * this.cordeRes1x2(receptor)
         ).toFixed(2),
       },
       {
-        Letra: "B",
+        Letra: "C",
         Cordenada: `(${this.cordeRes2x1(receptor)}, ${0})`,
         Resultado: parseFloat(
           receptor.getObjX1() * this.cordeRes2x1(receptor)

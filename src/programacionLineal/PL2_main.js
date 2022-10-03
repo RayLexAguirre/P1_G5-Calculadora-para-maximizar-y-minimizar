@@ -1,7 +1,7 @@
 "use strict";
 
 import Receptor from "./PL2_Receptor.js";
-import Estructurador from "./PL2_estructurador.js";
+import Estructurador from "./PL2_Estructurador.js";
 
 function limpiar() {
   document.getElementById("Interpolación").reset();
