@@ -1,7 +1,7 @@
 "use strict";
 
-import Receptor from "./PL2_Receptor.js";
-import Estructurador from "./PL2_Estructurador.js";
+import Receptor from "./PL3_Receptor.js";
+import Estructurador from "./PL3_Estructurador.js";
 
 function limpiar() {
   document.getElementById("Interpolación").reset();
@@ -37,6 +37,10 @@ class App {
     document.getElementById(
       "R2"
     ).innerHTML = `Restricción 2: ${this._estructura.forRes2(receptor)}`;
+    document.getElementById(
+      "R3"
+    ).innerHTML = `Restricción 3: ${this._estructura.forRes3(receptor)}`;
+    this._estructura.tableInfo(receptor);
 
     /*
     document.getElementById("colFormula").innerHTML =
