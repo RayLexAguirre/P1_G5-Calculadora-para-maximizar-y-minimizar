@@ -152,10 +152,10 @@ export default class Estructurador {
       let sumx2 = -mulr1x2 + mulr2x2;
       let sumT = -mulT1 + mulT2;
 
-      let x2 = sumT / sumx2;
+      let x2 = Math.abs(sumT / sumx2);
 
       let x1 =
-        (receptor.getRes1() - receptor.getRes1X2() * x2) / receptor.getRes1X1();
+        Math.abs((receptor.getRes1() - receptor.getRes1X2() * x2) / receptor.getRes1X1());
 
       this._intX1 = parseFloat(x1.toFixed(2));
       this._intX2 = parseFloat(x2.toFixed(2));
@@ -205,6 +205,23 @@ export default class Estructurador {
     console.log(info);
     return info;
   }
+
+  CoordsInfo(receptor) {
+    let data = [];
+    let x1 = this.cordeRes1x1(receptor);
+    let x2 = this.cordeRes1x2(receptor);
+    let x3 = this.cordeRes2x1(receptor);
+    let x4 = this.cordeRes2x2(receptor);
+    let x5 = this._intX1;
+    let x6 = this._intX2;
+    data.push({x: x1, y: 0});
+    data.push({x: 0, y: x2});
+    data.push({x: x3, y: 0});
+    data.push({x: 0, y: x4});
+    data.push({x: x5, y: x6});
+    return data;
+  }
+
 
   add(receptor) {
     this._estructura.push(receptor);

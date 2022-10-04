@@ -170,10 +170,10 @@ export default class Estructurador {
       let sumx2 = -mulr1x2 + mulr2x2;
       let sumT = -mulT1 + mulT2;
 
-      let x2 = sumT / sumx2;
+      let x2 = Math.abs(sumT / sumx2);
 
       let x1 =
-        (receptor.getRes2() - receptor.getRes2X2() * x2) / receptor.getRes2X1();
+        Math.abs((receptor.getRes2() - receptor.getRes2X2() * x2) / receptor.getRes2X1());
 
       this._intX1 = parseFloat(x1.toFixed(2));
       this._intX2 = parseFloat(x2.toFixed(2));
