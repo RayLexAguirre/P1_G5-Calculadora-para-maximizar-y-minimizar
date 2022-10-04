@@ -37,6 +37,7 @@ class App {
     document.getElementById(
       "R2"
     ).innerHTML = `Restricción 2: ${this._estructura.forRes2(receptor)}`;
+    this._estructura.tableInfo(receptor);
 
     /*
     document.getElementById("colFormula").innerHTML =
