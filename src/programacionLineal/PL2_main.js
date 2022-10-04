@@ -57,7 +57,6 @@ class App {
     this._estructura.tableInfo(receptor);
     document.getElementById("info").innerHTML = `${this._loopPrint(this._estructura.tableInfo(receptor))}`;
     document.getElementById("graph").innerHTML = `<canvas id="myChart" width="400" height="400"></canvas>`;
-    console.log(this._estructura.CoordsInfo(receptor));
 
     const data = {
       datasets: [{
@@ -70,7 +69,6 @@ class App {
     const ctx = document.getElementById("myChart").getContext("2d");
     const myChart = new Chart(ctx, {
     type: 'scatter',
-    labels: ['A', 'B', 'C', 'D', 'E'],
     data: data,
     options: {
         scales: {

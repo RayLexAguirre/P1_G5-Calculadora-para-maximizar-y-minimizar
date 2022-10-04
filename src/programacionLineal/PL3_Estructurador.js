@@ -238,6 +238,26 @@ export default class Estructurador {
     return info;
   }
 
+  CoordsInfo(receptor) {
+    let data = [];
+    let x1 = this.cordeRes1x1(receptor);
+    let x2 = this.cordeRes1x2(receptor);
+    let x3 = this.cordeRes2x1(receptor);
+    let x4 = this.cordeRes2x2(receptor);
+    let x5 = this._intX1;
+    let x6 = this._intX2;
+    let x7 = this.cordeRes3x1(receptor);
+    let x8 = this.cordeRes3x2(receptor);
+    data.push({x: x1, y: 0});
+    data.push({x: 0, y: x2});
+    data.push({x: x3, y: 0});
+    data.push({x: 0, y: x4});
+    data.push({x: x5, y: x6});
+    data.push({x: x7, y: 0});
+    data.push({x: 0, y: x8});
+    return data;
+  }
+
   add(receptor) {
     this._estructura.push(receptor);
 
