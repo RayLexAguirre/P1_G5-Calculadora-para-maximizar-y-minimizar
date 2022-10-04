@@ -301,19 +301,19 @@ export default class Estructurador {
 
     if (this.tipo(receptor) == "Maximizar") {
       if (x1 > x2 && x1 > interseccion) {
-        return `Max = ${x1}`;
+        return `Max Z = ${x1}`;
       } else if (x2 > x1 && x2 > interseccion) {
-        return `Max = ${x2}`;
+        return `Max Z = ${x2}`;
       } else if (interseccion > x1 && interseccion > x2) {
-        return `Max = ${interseccion}`;
+        return `Max Z = ${interseccion}`;
       }
     } else if (this.tipo(receptor) == "Minimizar") {
       if (x1 < x2 && x1 < interseccion) {
-        return `Min = ${x1}`;
+        return `Min Z = ${x1}`;
       } else if (x2 < x1 && x2 < interseccion) {
-        return `Min = ${x2}`;
+        return `Min Z = ${x2}`;
       } else if (interseccion < x1 && interseccion < x2) {
-        return `Min = ${interseccion}`;
+        return `Min Z = ${interseccion}`;
       }
     }
   }

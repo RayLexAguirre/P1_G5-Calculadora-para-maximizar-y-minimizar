@@ -57,7 +57,7 @@ class App {
     this._estructura.tableInfo(receptor);
     document.getElementById(
       "resultado"
-    ).innerHTML = `Resultado: ${this._estructura.resultado(receptor)}`;
+    ).innerHTML = `${this._estructura.resultado(receptor)}`;
     this._estructura.tableInfo(receptor);
     document.getElementById("info").innerHTML = `${this._loopPrint(
       this._estructura.tableInfo(receptor)

@@ -51,7 +51,7 @@ class App {
     ).innerHTML = `Restricción 3: ${this._estructura.forRes3(receptor)}`;
     document.getElementById(
       "resultado"
-    ).innerHTML = `Resultado: ${this._estructura.resultado(receptor)}`;
+    ).innerHTML = `${this._estructura.resultado(receptor)}`;
     this._estructura.tableInfo(receptor);
 
     document.getElementById("info").innerHTML = `${this._loopPrint(
