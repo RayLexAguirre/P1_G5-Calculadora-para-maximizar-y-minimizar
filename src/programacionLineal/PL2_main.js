@@ -26,16 +26,16 @@ class App {
 
   _loopPrint(array) {
     let html = "";
-    for(let i = 0; i < array.length; i++) {
+    for (let i = 0; i < array.length; i++) {
       html += `Letra: ${array[i].Letra} <br> Cordenada: ${array[i].Cordenada} <br> Resultado: ${array[i].Resultado} <br>`;
     }
-    console.log(array)
+    console.log(array);
     return html;
   }
 
   _getCoords(array) {
-    let data=[];
-    for(let i = 0; i < array.length; i++) {
+    let data = [];
+    for (let i = 0; i < array.length; i++) {
       data.push(array[i].Cordenada);
     }
     console.log(data);
@@ -55,47 +55,43 @@ class App {
       "R2"
     ).innerHTML = `Restricción 2: ${this._estructura.forRes2(receptor)}`;
     this._estructura.tableInfo(receptor);
-    document.getElementById("info").innerHTML = `${this._loopPrint(this._estructura.tableInfo(receptor))}`;
-    document.getElementById("graph").innerHTML = `<canvas id="myChart" width="400" height="400"></canvas>`;
+    document.getElementById(
+      "resultado"
+    ).innerHTML = `Resultado: ${this._estructura.resultado(receptor)}`;
+    this._estructura.tableInfo(receptor);
+    document.getElementById("info").innerHTML = `${this._loopPrint(
+      this._estructura.tableInfo(receptor)
+    )}`;
+
+    document.getElementById(
+      "graph"
+    ).innerHTML = `<canvas id="myChart" width="400" height="400"></canvas>`;
 
     const data = {
-      datasets: [{
-        label: 'Método Gráfico',
-        data: this._estructura.CoordsInfo(receptor),
-        backgroundColor: 'rgb(255, 99, 132)'
-      }],
+      datasets: [
+        {
+          label: "Método Gráfico",
+          data: this._estructura.CoordsInfo(receptor),
+          backgroundColor: "rgb(255, 99, 132)",
+        },
+      ],
     };
 
     const ctx = document.getElementById("myChart").getContext("2d");
     const myChart = new Chart(ctx, {
-    type: 'scatter',
-    data: data,
-    options: {
+      type: "scatter",
+      data: data,
+      options: {
         scales: {
-            x: {
-                beginAtZero: true
-            },
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+          x: {
+            beginAtZero: true,
+          },
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
     });
-
-
-    /*
-    document.getElementById("colFormula").innerHTML =
-      this._estructura.formarFormula(receptor);
-    document.getElementById("colAltura").innerHTML =
-      this._estructura.clacularPendiente(receptor);
-    document.getElementById("colIntegral").innerHTML =
-      this._estructura.diseñoIntegral(receptor);
-    document.getElementById("colIntegralI").innerHTML =
-      this._estructura.primeraIntegral(receptor) + " u²";
-    document.getElementById("colI").innerHTML =
-      this._estructura.ecuacionI(receptor) + " u²";
-    document.getElementById("colEr").innerHTML =
-      this._estructura.calcularER(receptor) + "%";*/
   }
 }
 

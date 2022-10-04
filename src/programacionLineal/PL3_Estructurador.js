@@ -14,7 +14,7 @@ export default class Estructurador {
   }
 
   forObj(receptor) {
-    let forObj = `(${receptor.getObjX1()}) + (${receptor.getObjX2()})`;
+    let forObj = `(${receptor.getObjX1()})X₁ + (${receptor.getObjX2()})X₂`;
 
     return forObj;
   }
@@ -172,8 +172,9 @@ export default class Estructurador {
 
       let x2 = Math.abs(sumT / sumx2);
 
-      let x1 =
-        Math.abs((receptor.getRes2() - receptor.getRes2X2() * x2) / receptor.getRes2X1());
+      let x1 = Math.abs(
+        (receptor.getRes2() - receptor.getRes2X2() * x2) / receptor.getRes2X1()
+      );
 
       this._intX1 = parseFloat(x1.toFixed(2));
       this._intX2 = parseFloat(x2.toFixed(2));
@@ -248,14 +249,141 @@ export default class Estructurador {
     let x6 = this._intX2;
     let x7 = this.cordeRes3x1(receptor);
     let x8 = this.cordeRes3x2(receptor);
-    data.push({x: x1, y: 0});
-    data.push({x: 0, y: x2});
-    data.push({x: x3, y: 0});
-    data.push({x: 0, y: x4});
-    data.push({x: x5, y: x6});
-    data.push({x: x7, y: 0});
-    data.push({x: 0, y: x8});
+    data.push({ x: x1, y: 0 });
+    data.push({ x: 0, y: x2 });
+    data.push({ x: x3, y: 0 });
+    data.push({ x: 0, y: x4 });
+    data.push({ x: x5, y: x6 });
+    data.push({ x: x7, y: 0 });
+    data.push({ x: 0, y: x8 });
     return data;
+  }
+
+  rMaxX1(receptor) {
+    let resultado = 0;
+    let r1x1 = this.cordeRes1x1(receptor);
+    let r2x1 = this.cordeRes2x1(receptor);
+    let r3x1 = this.cordeRes3x1(receptor);
+
+    if (this.tipo(receptor) == "Minimizar") {
+      if (r1x1 < r2x1 && r1x1 < r3x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes1x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r2x1 < r1x1 && r2x1 < r3x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes2x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r3x1 < r1x1 && r3x1 < r2x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes3x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    } else if (this.tipo(receptor) == "Maximizar") {
+      if (r1x1 > r2x1 && r1x1 > r3x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes1x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r2x1 > r1x1 && r2x1 > r3x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes2x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r3x1 > r1x1 && r3x1 > r2x1) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes3x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    }
+  }
+
+  rMaxX2(receptor) {
+    let resultado = 0;
+    let r1x2 = this.cordeRes1x2(receptor);
+    let r2x2 = this.cordeRes2x2(receptor);
+    let r3x2 = this.cordeRes3x2(receptor);
+
+    if (this.tipo(receptor) == "Minimizar") {
+      if (r1x2 < r2x2 && r1x2 < r3x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes1x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r2x2 < r1x2 && r2x2 < r3x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes2x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r3x2 < r1x2 && r3x2 < r2x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes3x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    } else if (this.tipo(receptor) == "Maximizar") {
+      if (r1x2 > r2x2 && r1x2 > r3x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes1x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r2x2 > r1x2 && r2x2 > r3x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes2x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (r3x2 > r1x2 && r3x2 > r2x2) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes3x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    }
+  }
+
+  resultado(receptor) {
+    let x1 = Number(this.rMaxX1(receptor));
+    console.log(x1);
+    let x2 = Number(this.rMaxX2(receptor));
+    console.log(x2);
+    this.metodoSumaResta(receptor);
+    let interseccion =
+      receptor.getObjX1() * this._intX1 + receptor.getObjX2() * this._intX2;
+    console.log(interseccion);
+
+    if (this.tipo(receptor) == "Maximizar") {
+      if (x1 > x2 && x1 > interseccion) {
+        return `Max = ${x1}`;
+      } else if (x2 > x1 && x2 > interseccion) {
+        return `Max = ${x2}`;
+      } else if (interseccion > x1 && interseccion > x2) {
+        return `Max = ${interseccion}`;
+      }
+    } else if (this.tipo(receptor) == "Minimizar") {
+      if (x1 < x2 && x1 < interseccion) {
+        return `Min = ${x1}`;
+      } else if (x2 < x1 && x2 < interseccion) {
+        return `Min = ${x2}`;
+      } else if (interseccion < x1 && interseccion < x2) {
+        return `Min = ${interseccion}`;
+      }
+    }
   }
 
   add(receptor) {

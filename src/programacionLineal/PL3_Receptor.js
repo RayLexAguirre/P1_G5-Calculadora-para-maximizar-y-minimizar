@@ -145,7 +145,7 @@ export default class Receptor {
       SimRes3,
       res3
     );
-
+    /*
     inpObjX1.value = "";
     inpObjX2.value = "";
     inpRes1X1.value = "";
@@ -157,7 +157,7 @@ export default class Receptor {
     inpRes3X1.value = "";
     inpRes3X2.value = "";
     inpRes3.value = "";
-
+*/
     return ecuacion;
   }
 }

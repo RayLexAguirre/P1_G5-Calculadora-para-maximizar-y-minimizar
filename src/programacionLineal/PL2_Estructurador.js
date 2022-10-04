@@ -14,7 +14,7 @@ export default class Estructurador {
   }
 
   forObj(receptor) {
-    let forObj = `(${receptor.getObjX1()}) + (${receptor.getObjX2()})`;
+    let forObj = `(${receptor.getObjX1()})X₁ + (${receptor.getObjX2()})X₂`;
 
     return forObj;
   }
@@ -154,8 +154,9 @@ export default class Estructurador {
 
       let x2 = Math.abs(sumT / sumx2);
 
-      let x1 =
-        Math.abs((receptor.getRes1() - receptor.getRes1X2() * x2) / receptor.getRes1X1());
+      let x1 = Math.abs(
+        (receptor.getRes1() - receptor.getRes1X2() * x2) / receptor.getRes1X1()
+      );
 
       this._intX1 = parseFloat(x1.toFixed(2));
       this._intX2 = parseFloat(x2.toFixed(2));
@@ -202,7 +203,6 @@ export default class Estructurador {
         ).toFixed(2),
       },
     ];
-    console.log(info);
     return info;
   }
 
@@ -214,14 +214,109 @@ export default class Estructurador {
     let x4 = this.cordeRes2x2(receptor);
     let x5 = this._intX1;
     let x6 = this._intX2;
-    data.push({x: x1, y: 0});
-    data.push({x: 0, y: x2});
-    data.push({x: x3, y: 0});
-    data.push({x: 0, y: x4});
-    data.push({x: x5, y: x6});
+    data.push({ x: x1, y: 0 });
+    data.push({ x: 0, y: x2 });
+    data.push({ x: x3, y: 0 });
+    data.push({ x: 0, y: x4 });
+    data.push({ x: x5, y: x6 });
     return data;
   }
 
+  rMaxX1(receptor) {
+    let resultado = 0;
+
+    if (this.tipo(receptor) == "Maximizar") {
+      if (this.cordeRes1x1(receptor) < this.cordeRes2x1(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes1x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (this.cordeRes1x1(receptor) > this.cordeRes2x1(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes2x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    } else if (this.tipo(receptor) == "Minimizar") {
+      if (this.cordeRes1x1(receptor) < this.cordeRes2x1(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes2x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (this.cordeRes1x1(receptor) > this.cordeRes2x1(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX1() * this.cordeRes1x1(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    }
+  }
+
+  rMaxX2(receptor) {
+    let resultado = 0;
+
+    if (this.tipo(receptor) == "Maximizar") {
+      if (this.cordeRes1x2(receptor) < this.cordeRes2x2(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes1x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (this.cordeRes1x2(receptor) > this.cordeRes2x2(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes2x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    } else if (this.tipo(receptor) == "Minimizar") {
+      if (this.cordeRes1x2(receptor) < this.cordeRes2x2(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes2x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      } else if (this.cordeRes1x2(receptor) > this.cordeRes2x2(receptor)) {
+        resultado = parseFloat(
+          receptor.getObjX2() * this.cordeRes1x2(receptor)
+        ).toFixed(2);
+
+        return resultado;
+      }
+    }
+  }
+
+  resultado(receptor) {
+    let x1 = Number(this.rMaxX1(receptor));
+    console.log(x1);
+    let x2 = Number(this.rMaxX2(receptor));
+    console.log(x2);
+    let interseccion =
+      receptor.getObjX1() * this._intX1 + receptor.getObjX2() * this._intX2;
+    console.log(interseccion);
+
+    if (this.tipo(receptor) == "Maximizar") {
+      if (x1 > x2 && x1 > interseccion) {
+        return `Max = ${x1}`;
+      } else if (x2 > x1 && x2 > interseccion) {
+        return `Max = ${x2}`;
+      } else if (interseccion > x1 && interseccion > x2) {
+        return `Max = ${interseccion}`;
+      }
+    } else if (this.tipo(receptor) == "Minimizar") {
+      if (x1 < x2 && x1 < interseccion) {
+        return `Min = ${x1}`;
+      } else if (x2 < x1 && x2 < interseccion) {
+        return `Min = ${x2}`;
+      } else if (interseccion < x1 && interseccion < x2) {
+        return `Min = ${interseccion}`;
+      }
+    }
+  }
 
   add(receptor) {
     this._estructura.push(receptor);
